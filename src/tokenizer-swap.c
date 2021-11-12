@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "tokenizer.h"
 #define true 1
 #define false 0
 
@@ -74,4 +73,17 @@ void free_tokens(char **tokens) {
     free(tmp[0]);
   }
   free(tokens);
+}
+
+int main() {
+  char userIn[1000];
+  while (1) {
+    putchar('$');
+    fgets(userIn, 1000, stdin);
+    char **tokens = tokenize(userIn);
+    print_tokens(tokens);
+    free_tokens(tokens);
+  }
+
+  return 0;  
 }
